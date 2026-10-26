@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b211c">
+<meta name="description" content="The campus events and memories board for NIT Raipur."><title>Campus Pulse — NIT Raipur</title>
+<link rel="stylesheet" href="./styles.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script><script src="./live.js" defer></script>
+</head>
+<body>
+<div class="announcement"><span class="live-dot"></span> A better view of what’s happening on campus <span class="announce-tag">NIT RAIPUR</span></div>
+<header class="site-header">
+<a class="brand" href="./index.html" aria-label="Campus Pulse home"><span class="brand-mark">CP<span>•</span></span><span class="brand-copy"><strong>Campus Pulse</strong><small>NIT RAIPUR · CAMPUS LIFE</small></span></a>
+<nav class="main-nav" aria-label="Main navigation"><a class="active" href="#events">Events</a><a href="#quickfire">NITRR Quickfire</a><a href="#tictactoe">Tic-tac-toe</a><a href="./dots-and-boxes.html" target="_blank" rel="noopener noreferrer">Dots &amp; Boxes ↗</a><a href="#archive">Memories</a><a href="#clubs">For clubs</a></nav>
+<div class="header-actions"><button class="text-button" id="admin-link">Admin</button><button class="login-button" id="account-button">Sign in <span aria-hidden="true">↗</span></button><button class="menu-button" id="menu-button" aria-label="Open menu">☰</button></div>
+</header>
+<main id="home-view">
+<section class="hero">
+<div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> YOUR CAMPUS, IN THE LOOP</div><h1>Make room<br>for <em>what’s next.</em></h1>
+<p class="hero-text">Find the events worth showing up for. Keep the moments worth looking back on.</p>
+<div class="hero-actions"><a href="#events" class="primary-button">Explore events <span>↘</span></a><a href="#archive" class="quiet-link">See campus memories <span>↗</span></a></div>
+<div class="hero-footnote"><span class="avatar-stack"><i>N</i><i>R</i><i>+</i></span><span>A shared calendar for the whole campus</span></div></div>
+<div class="hero-art" aria-label="Campus Pulse feature illustration"><div class="art-top"><span>ISSUE NO. 01 / NITRR</span><span>21° 15' N · 81° 38' E</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="sun"></div>
+<div class="hero-art-label"><span>THE CAMPUS<br>IS YOURS.</span><b>26<br><small>°C</small></b></div><div class="hill hill-back"></div><div class="hill hill-front"></div>
+<div class="campus-tower"><i></i><i></i><i></i><i></i><b></b></div><div class="art-bottom"><span>RAIPUR, CHHATTISGARH</span><span>MOVE WITH THE MOMENT&nbsp; ↗</span></div><div class="art-sticker">SHOW<br>UP<span>✳</span></div></div>
+<div class="hero-index"><span>01</span> / 03</div>
+</section>
+<section class="ticker" aria-label="Campus message"><div class="ticker-track"><span>FIND YOUR PEOPLE</span><b>✳</b><span>FIND YOUR THING</span><b>✳</b><span>FIND YOUR NEXT</span><b>✳</b><span>FIND YOUR PEOPLE</span><b>✳</b><span>FIND YOUR THING</span><b>✳</b></div></section>
+<section class="section events-section" id="events">
+<div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> THE CAMPUS CALENDAR</div><h2>Coming <em>up.</em></h2></div>
+<div class="event-tools"><label class="search-box"><span>⌕</span><input id="event-search" placeholder="Search events" aria-label="Search events"></label>
+<select id="category-filter" aria-label="Filter by category"><option value="all">All events</option><option>Academic</option><option>Cultural</option><option>Sports</option><option>Workshop</option><option>Club event</option><option>Campus</option></select></div></div>
+<div class="events-grid" id="upcoming-grid"></div><div class="empty-state" id="upcoming-empty" hidden><span class="empty-icon">✳</span><strong>It’s a little quiet here.</strong><p>New events will show up as soon as the admin publishes them.</p></div>
+</section>
+<section class="section quickfire-section" id="quickfire">
+<div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> NITRR QUICKFIRE</div><h2>Know your <em>campus?</em></h2></div><p class="section-intro">Six quick questions about NIT Raipur’s story. Play now, see answers right away, and try to beat your score.</p></div>
+<div class="quickfire-card"><div class="quickfire-stamp" aria-hidden="true">NITRR<br><b>1956</b></div><div id="quickfire-screen" aria-live="polite"><span class="quickfire-kicker">A ONE-MINUTE CAMPUS QUIZ</span><h3>How well do you know NIT Raipur?</h3><p>Six questions. Instant answers. No sign-in.</p><button class="primary-button" id="quickfire-start" type="button">Start quickfire <span>↗</span></button></div><div class="quickfire-source">Quiz facts from <a href="https://www.nitrr.ac.in/genesis.php" target="_blank" rel="noopener noreferrer">NIT Raipur’s official history ↗</a></div></div>
+</section>
+<section class="section tic-section" id="tictactoe">
+<div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> CAMPUS PAUSE · XO DUEL</div><h2>One quick <em>rematch.</em></h2></div><p class="section-intro">Play with a friend on the same screen, or take on the computer. No sign-in needed.</p></div>
+<div class="tic-card"><div class="tic-game-head"><div><span class="tic-kicker">TIC-TAC-TOE</span><h3>Ready to play?</h3></div><button class="tic-new-game" id="tic-new-game" type="button">New game ↻</button></div><div class="tic-modes" role="group" aria-label="Choose game mode"><button class="tic-mode active" id="tic-mode-friends" type="button" aria-pressed="true">Two players</button><button class="tic-mode" id="tic-mode-computer" type="button" aria-pressed="false">Vs computer</button></div><div class="tic-scoreboard"><div class="tic-score active" id="tic-score-x"><span id="tic-label-x">X wins</span><b id="tic-value-x">0</b></div><div class="tic-score" id="tic-score-draw"><span>Draws</span><b id="tic-value-draw">0</b></div><div class="tic-score" id="tic-score-o"><span id="tic-label-o">O wins</span><b id="tic-value-o">0</b></div></div><div class="tic-board" id="tic-board" role="group" aria-label="Tic-tac-toe board"></div><p class="tic-status" id="tic-status" aria-live="polite">X starts. Tap any square.</p></div>
+</section>
+<section class="feature-band" id="clubs"><div class="feature-shape"><span>₹</span><i></i><b>50</b></div>
+<div class="feature-copy"><div class="eyebrow light"><span class="eyebrow-line"></span> HAVE SOMETHING HAPPENING?</div><h2>Bring your club<br>into the <em>spotlight.</em></h2><p>Promote an upcoming event to the whole campus. Send a request, share the details, and we’ll review it before it goes live.</p><div class="fee-note"><span>₹50</span><span>per approved promotion <i>·</i> paid after review</span></div></div>
+<div class="feature-action"><button class="outline-button" id="promote-button">Request a promotion <span>↗</span></button><small>For verified NIT Raipur student clubs</small></div></section>
+<section class="section archive-section" id="archive"><div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> FROM THE ARCHIVE</div><h2>Good times, <em>kept.</em></h2></div><p class="section-intro">A look back at the events that made campus feel like home. Browse photos from recent years.</p></div>
+<div class="archive-grid" id="archive-grid"></div><div class="empty-state archive-empty" id="archive-empty" hidden><span class="empty-icon">▧</span><strong>The memory wall starts here.</strong><p>Past event photos will appear as the admin adds them to the archive.</p></div></section>
+<section class="club-cta"><div class="cta-mark">CP<span>•</span></div><div><div class="eyebrow"><span class="eyebrow-line"></span> CAMPUS PULSE · NIT RAIPUR</div><h2>Good things happen<br>when we <em>show up.</em></h2></div><a href="#events" class="round-arrow" aria-label="Back to events">↑</a></section>
+</main>
+<main id="admin-view" hidden><section class="admin-page">
+<div class="admin-top"><div><div class="eyebrow"><span class="eyebrow-line"></span> PRIVATE ADMIN SPACE</div><h1>Campus <em>control.</em></h1><p>Publish events, review student verification, and manage club promotion requests.</p></div><button class="back-link" id="back-home">← Back to campus</button></div>
+<div class="admin-tabs"><button class="admin-tab active" data-tab="publish">Publish event</button><button class="admin-tab" data-tab="manage">Manage events</button><button class="admin-tab" data-tab="requests">Requests <span id="request-count">0</span></button></div>
+<div class="admin-panel" id="publish-panel"><div class="panel-heading"><div><span class="panel-kicker">01 / ADD TO THE CALENDAR</span><h2>Publish an event</h2><p>Events and their photos are public once published.</p></div><span class="panel-icon">↗</span></div>
+<form id="event-form" class="form-grid">
+<label class="field wide"><span>Event name</span><input name="title" required maxlength="140" placeholder="e.g. Inter-branch football final"></label>
+<label class="field"><span>Category</span><select name="category"><option>Academic</option><option>Cultural</option><option>Sports</option><option>Workshop</option><option>Club event</option><option>Campus</option></select></label>
+<label class="field"><span>Date</span><input name="event_date" type="date" required></label>
+<label class="field"><span>Time</span><input name="event_time" placeholder="e.g. 5:30 PM"></label><label class="field"><span>Venue</span><input name="venue" required maxlength="160" placeholder="Where on campus?"></label>
+<label class="field wide"><span>About this event</span><textarea name="description" required rows="4" maxlength="3000" placeholder="What should people know?"></textarea></label>
+<label class="field"><span>Organiser</span><input name="organizer" maxlength="140" placeholder="Club, department, or team"></label>
+<label class="field"><span>Photo year for archive uploads</span><input name="gallery_year" type="number" min="1950" max="2027" value="2026"></label>
+<label class="field wide file-field"><span>Cover image <small>JPEG, PNG, WebP · max 5 MB</small></span><input name="poster" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<label class="field wide file-field"><span>Recent-year event photos <small>All selected photos will be filed under the year above</small></span><input name="gallery" type="file" accept="image/jpeg,image/png,image/webp" multiple></label>
+<div class="form-submit wide"><p>Check that event details and photos are ready to be public.</p><button class="primary-button" type="submit">Publish event <span>↗</span></button></div>
+</form></div>
+<div class="admin-panel" id="requests-panel" hidden><div class="panel-heading"><div><span class="panel-kicker">02 / REVIEW QUEUE</span><h2>Needs your attention</h2><p>Verify student IDs and review club promotion requests. Approved promotions cost ₹50.</p></div><button class="refresh-button" id="refresh-queue">Refresh ↻</button></div>
+<div id="people-queue" class="queue-list"></div><div class="queue-divider"><span>PROMOTION REQUESTS</span></div><div id="promotion-queue" class="queue-list"></div>
+<div class="empty-state queue-empty" id="queue-empty" hidden><span class="empty-icon">✓</span><strong>You’re all caught up.</strong><p>There are no pending student checks or promotion requests.</p></div></div>
+<div class="admin-panel" id="manage-panel" hidden><div class="panel-heading"><div><span class="panel-kicker">03 / PUBLISHED CONTENT</span><h2>Your event list</h2><p>Edit event details, add archive photos, or remove published events.</p></div><button class="refresh-button" id="refresh-events">Refresh ↻</button></div><div id="manage-events-list" class="queue-list"></div><div class="empty-state" id="manage-empty" hidden><span class="empty-icon">✳</span><strong>No events yet.</strong><p>Publish the first event from the event tab.</p></div></div>
+</section></main>
+<footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">CP<span>•</span></span><span class="brand-copy"><strong>Campus Pulse</strong><small>NIT RAIPUR · CAMPUS LIFE</small></span></a><span>Made for the moments that make campus.</span><span>© 2026 · NIT RAIPUR</span></footer>
+<div class="modal-backdrop" id="modal-backdrop" hidden><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><div id="modal-content"></div></section></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>

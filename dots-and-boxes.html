@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b211c">
+<meta name="description" content="Play Dots and Boxes with a friend on Campus Pulse."><title>Dots &amp; Boxes — Campus Pulse</title>
+<link rel="stylesheet" href="./dots-and-boxes.css"><script src="./dots-and-boxes.js" defer></script>
+</head>
+<body>
+<header class="game-header"><a class="game-brand" href="./index.html" aria-label="Return to Campus Pulse"><span class="brand-mark">CP<span>•</span></span><span><strong>Campus Pulse</strong><small>NIT RAIPUR · GAME ROOM</small></span></a><a class="back-link" href="./index.html">← Back to campus</a></header>
+<main class="game-page">
+<div class="game-eyebrow"><span></span> CAMPUS GAME ROOM · 02</div>
+<h1>Dots &amp; <em>Boxes.</em></h1>
+<p class="intro">Take turns connecting the 10×10 dots to claim one of 81 squares. Complete a square to earn another turn; the player with the most squares wins.</p>
+<form id="players-form" class="players-form">
+<label><span><i class="player-dot player-one"></i> PLAYER ONE · X</span><input name="player_one" type="text" value="Player 1" maxlength="32" required autocomplete="off" aria-label="Player one's name"></label>
+<label><span><i class="player-dot player-two"></i> PLAYER TWO · O</span><input name="player_two" type="text" value="Player 2" maxlength="32" required autocomplete="off" aria-label="Player two's name"></label>
+<button class="start-button" type="submit">Start game <span>↗</span></button>
+</form>
+<section class="game-console" id="game-console" hidden>
+<div class="match-topline"><div><span class="match-label">THE MATCH</span><button class="new-round" id="new-round" type="button">New round ↻</button></div><p class="turn-status" id="turn-status" role="status" aria-live="polite"></p></div>
+<div class="scoreboard" aria-label="Scores">
+<div class="score-card player-one active" id="score-one"><span class="score-name" id="score-name-one">Player 1</span><b id="score-value-one">0</b></div>
+<div class="score-divider">SQUARES</div>
+<div class="score-card player-two" id="score-two"><span class="score-name" id="score-name-two">Player 2</span><b id="score-value-two">0</b></div>
+</div>
+<div class="board-frame"><svg id="dots-board" class="dots-board" viewBox="0 0 600 600" role="group" aria-label="Dots and Boxes board with 10 rows and 10 columns of dots" aria-describedby="board-hint"></svg></div>
+<p class="board-hint" id="board-hint">Click or tap any open line between dots. A completed square shows its owner’s first letter. On a small screen, swipe sideways across the board.</p>
+</section>
+<div class="game-note">A two-player game on one screen. No account, score upload, or personal data.</div>
+</main>
+</body>
+</html>
