@@ -42,7 +42,7 @@ async function profileById(id){const r=await sb.from("profiles").select("*").eq(
 async function saveIdFile(file,id){ensureImage(file);const path=id+"/id-card";await uploadImage("college-ids",path,file,false);const r=await sb.from("profiles").update({id_card_path:path}).eq("id",id);if(r.error)throw r.error;pendingIdFile=null;}
 function shapeEvent(row){return {id:row.id,title:row.title,category:row.category,date:row.event_date,time:row.event_time,venue:row.venue,description:row.description,organizer:row.organizer,_poster_path:row.poster_path,poster:row.poster_path?publicImage("event-media",row.poster_path):"",gallery:(row.event_images||[]).map(x=>({id:x.id,year:x.year,src:publicImage("event-media",x.image_path),alt:x.alt_text||row.title}))};}
 async function saveEvent(form,updateId,sourcePromotionId){
- const d=new FormData(form),poster=d.get("poster"),gallery=Array.from(d.getAll("gallery")).filter(f=>f&&f.size);
+ const d=form,poster=d.get("poster"),gallery=Array.from(d.getAll("gallery")).filter(f=>f&&f.size);
  const row={title:String(d.get("title")||"").trim(),category:String(d.get("category")||"Campus"),event_date:String(d.get("event_date")||""),event_time:String(d.get("event_time")||""),venue:String(d.get("venue")||"").trim(),description:String(d.get("description")||"").trim(),organizer:String(d.get("organizer")||"").trim()};
  if(!row.title||!row.event_date||!row.venue||!row.description)throw new Error("Fill in the event name, date, venue, and description.");
  if(poster&&poster.size){const path="events/"+crypto.randomUUID()+"/poster."+fileExt(poster);row.poster_path=await uploadImage("event-media",path,poster,false);}
